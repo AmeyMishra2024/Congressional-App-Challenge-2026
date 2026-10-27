@@ -1,0 +1,319 @@
+/* A single content-aligned header, isolated from the retired status-band styles. */
+.workspace-header {
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 20px 36px 18px;
+  border-bottom: 1px solid #e1ddd2;
+  color: var(--navy);
+}
+.child-experience .workspace-header {
+  max-width: 1350px;
+}
+.workspace-header-top,
+.header-heading,
+.header-account,
+.header-person,
+.workspace-toolbar,
+.workspace-context,
+.workspace-selectors,
+.header-demo-controls {
+  display: flex;
+  align-items: center;
+}
+.workspace-header-top {
+  justify-content: space-between;
+  gap: 24px;
+}
+.header-heading {
+  gap: 18px;
+  min-width: 0;
+}
+.header-location {
+  font-size: 1rem;
+  font-weight: 650;
+}
+.header-virtual {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.header-virtual .icon {
+  width: 16px;
+  height: 16px;
+}
+.header-account {
+  gap: 18px;
+  min-width: 0;
+}
+.header-person {
+  gap: 10px;
+  min-width: 0;
+}
+.header-avatar {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e6eceb;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.header-person-copy {
+  min-width: 0;
+  line-height: 1.35;
+}
+.header-person-copy strong {
+  display: block;
+  max-width: 24ch;
+  overflow-wrap: anywhere;
+  font-size: 0.89rem;
+  font-weight: 600;
+}
+.header-person-copy small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+.workspace-header button {
+  font-size: 0.83rem;
+  min-height: 44px;
+  padding: 8px 14px;
+  white-space: nowrap;
+}
+.header-signout {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--muted);
+}
+.header-signout:hover {
+  background: #efece3;
+  color: var(--navy);
+  border-color: transparent;
+}
+.workspace-toolbar {
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.workspace-context {
+  gap: 14px 20px;
+  flex-wrap: wrap;
+  min-width: 0;
+  flex: 1 1 380px;
+}
+.workspace-selectors {
+  gap: 12px 18px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.workspace-header .toolbar-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.83rem;
+  line-height: 1.4;
+}
+.toolbar-field > span {
+  flex-shrink: 0;
+}
+.workspace-header .toolbar-field select {
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  margin: 0;
+  padding: 9px 30px 9px 12px;
+  border: 1px solid #cfd8df;
+  border-radius: 8px;
+  background-color: #fff;
+  color: var(--navy);
+  font-size: 0.89rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+.workspace-header .header-child-field select {
+  width: 130px;
+}
+.header-policy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.header-policy .icon {
+  width: 16px;
+  height: 16px;
+}
+.header-policy.is-paused {
+  color: #775400;
+}
+.header-demo-controls {
+  gap: 14px;
+  flex: 0 0 auto;
+}
+.header-role-switch {
+  background: #fff;
+  color: var(--navy);
+  border: 1px solid #cfd8df;
+}
+.header-role-switch:hover {
+  background: #edf2fb;
+  border-color: #9aacbf;
+}
+.header-preview-info {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 0.78rem;
+}
+.header-preview-info > summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 8px 2px;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: inherit;
+  line-height: 1.5;
+  list-style: none;
+}
+.header-preview-info > summary::-webkit-details-marker {
+  display: none;
+}
+.header-preview-info > summary::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border: solid currentColor;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+  margin: -3px 2px 0 0;
+}
+.header-preview-info[open] > summary::after {
+  transform: rotate(225deg);
+  margin-top: 3px;
+}
+.header-preview-popover {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 30;
+  width: 285px;
+  max-width: calc(100vw - 36px);
+  padding: 18px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgb(24 49 83 / 9%);
+}
+.header-preview-popover strong {
+  font-size: 0.89rem;
+}
+.header-preview-popover p {
+  margin: 8px 0 0;
+  font-size: 0.89rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+@media (min-width: 1700px) {
+  .workspace-header {
+    padding-inline: 55px;
+  }
+}
+@media (max-width: 1150px) and (min-width: 801px) {
+  .workspace-header {
+    padding-inline: 25px;
+  }
+}
+@media (max-width: 800px) {
+  .workspace-header {
+    padding: 16px 22px;
+  }
+  .workspace-header-top {
+    gap: 12px;
+  }
+  .header-heading {
+    display: none;
+  }
+  .header-account {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .header-person-copy strong {
+    max-width: 20ch;
+  }
+  .workspace-toolbar {
+    margin-top: 12px;
+    gap: 10px;
+  }
+  .workspace-context {
+    flex-basis: 100%;
+    gap: 10px;
+  }
+  .workspace-selectors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+  .workspace-selectors > :only-child {
+    grid-column: 1/-1;
+  }
+  .workspace-header .toolbar-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .workspace-header .toolbar-field select {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+  }
+  .header-policy:not(.is-paused) {
+    display: none;
+  }
+  .header-demo-controls {
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .header-preview-info {
+    position: static;
+  }
+  .header-preview-popover {
+    left: 0;
+    right: auto;
+    max-width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .header-demo-controls {
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+  .workspace-selectors {
+    grid-template-columns: 1fr;
+  }
+  .workspace-header .toolbar-field > span {
+    width: 52px;
+  }
+  .header-role-switch {
+    font-size: 0.78rem;
+  }
+}
