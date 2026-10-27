@@ -1117,3 +1117,31 @@ progress {
     overflow-wrap: anywhere;
   }
 }
+
+.code-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 18px;
+  padding: 18px 20px;
+  background: #e9b030;
+  color: #173152;
+  text-align: center;
+  text-decoration: none;
+  border-bottom: 3px solid #173152;
+}
+.code-banner strong {
+  font-size: clamp(1.4rem, 4vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.code-banner span {
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.code-banner:hover,
+.code-banner:focus-visible {
+  background: #f2bd45;
+}
