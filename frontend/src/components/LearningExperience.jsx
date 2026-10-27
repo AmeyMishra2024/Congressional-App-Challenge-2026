@@ -412,6 +412,15 @@ export function LearningWelcome({ session, accept, perform, busy }) {
           )}
         </section>
       </div>
+      <footer>
+        <a
+          href="https://github.com/AmeyMishra2024/Congressional-App-Challenge-2026"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View the source code on GitHub
+        </a>
+      </footer>
     </div>
   );
 }

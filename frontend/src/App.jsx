@@ -429,7 +429,14 @@ function AppContent() {
         </main>
         <footer>
           Sprout uses virtual money and made-up market prices for education. It
-          does not offer financial advice.
+          does not offer financial advice.{" "}
+          <a
+            href="https://github.com/AmeyMishra2024/Congressional-App-Challenge-2026"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View the source code on GitHub
+          </a>
         </footer>
       </div>
     </div>
