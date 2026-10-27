@@ -1,43 +1,56 @@
-# Sprout account application
+# Sprout: Investing Practice
 
-This release contains the full Flask account server and a production React build. It is separate from the frozen browser-only public preview. No real account database, credentials or payment information are included.
+**Live app: https://sproutcac.com** · Congressional App Challenge 2026
 
-## Render service configuration
+Sprout teaches young people how investing works using a practice account and made-up market data, with a parent involved in the decisions. No real money, bank details or school information are ever used.
 
-- Source: `AmeyMishra2024/Congressional-App-Challenge-2026`, branch `render-production`.
-- Service type: Web Service; runtime: Python 3; region: Oregon.
-- Name: `sproutcac-app`.
-- Instance: the $7/month, 512 MB paid compute option.
-- Build command: `pip install -r backend/requirements.txt`.
-- Start command: `python render_start.py`.
-- Health check: `/api/health`.
-- Persistent disk: 1 GB mounted at `/var/data`, currently $0.25/month.
-- Automatic deploys: Off, until future release policy is chosen.
+## Try it in 30 seconds
 
-Environment variables:
+1. Open https://sproutcac.com
+2. Choose **Try a demonstration**, then **Start judge demo**. No sign-up or password is needed, and each demo gets its own fictional family.
+3. Use **Switch to parent** and **Switch to child** to see both sides of the app.
 
-| Key | Value |
-| --- | --- |
-| APP_ENV | production |
-| SECRET_KEY | Generate a private random value in Render; never put it in Git |
-| SESSION_COOKIE_SECURE | true |
-| DATABASE_URL | sqlite:////var/data/sprout.db |
-| TRUSTED_HOSTS | sproutcac.com,www.sproutcac.com |
-| TRUST_PROXY | true |
-| ENABLE_LIVE_MARKET | false |
+## The problem
 
-The startup script adds only Render's assigned `RENDER_EXTERNAL_HOSTNAME` to the trusted hosts. It refuses to start without the configured disk directory and database location. Waitress serves both the frontend and `/api` from the same origin, preserving session cookies and CSRF checks. Its proxy configuration trusts the single Render edge hop, sanitizes the allowed forwarded headers and removes other proxy headers. This entry point assumes the listening port is reachable only through Render's edge. Python is pinned to the latest 3.13 patch with `.python-version`.
+Most teens hear about investing from social media, with no safe place to practice and no one to talk through decisions with. Sprout gives them a low-stakes place to learn the basics, make choices, explain their reasoning, and review the results with a parent.
 
-The frontend is already built in `frontend/dist`; the deployment does not need Node. To reproduce it, run `npm ci` and `npm run build` in `frontend`, then commit the generated production build with its source.
+## What it does
 
-## Database backups
+- **Family accounts.** A parent creates a family and adds a child profile with a nickname and PIN.
+- **Six short lessons:** stocks and ownership, risk and returns, diversification, time horizons and compounding, reading price charts, and explaining investment decisions.
+- **Practice account.** Buy and sell with virtual cash, including fractional shares.
+- **Parent controls.** Parents set limits, pause trading, and approve or decline a child's proposed trades.
+- **Market replay.** Step through 12 market sessions where new information arrives over time, and compare your results with a benchmark (VTI).
+- **Reflections.** The child writes why they made each decision, and parents can review their learning.
+- **Resets.** Start over at any time. Old runs are archived, not erased.
 
-After database initialization, the service creates a verified SQLite online backup immediately and every 24 hours in `/var/data/backups`, retaining the most recent seven snapshots. The online backup API includes committed WAL changes. These copies survive restarts on the same persistent disk, but do not protect against loss of that disk. Download a backup to separate storage regularly and test restoration before accepting important account data. Startup schema migrations also retain their own pre-upgrade backup.
+## Honest limitations
 
-## Deployment and domain handoff
+- Replay prices are **synthetic and illustrative**, not real market data. Live market data is off by default.
+- It is an educational prototype. Email verification and account recovery are not implemented.
+- Positions are long-only: no leverage, shorting or real brokerage connections.
 
-Billing and service creation require the owner's review. This repository does not mean the paid service is live. Create and verify the new service on its assigned Render hostname before moving sproutcac.com from the static preview. Keep the existing ChatGPT Sites version 8 and `sproutcac-preview.onrender.com` deployment intact.
+## How it is built
 
-When ready to move the custom domain, transfer its domain attachment to the verified full-app service and change only the root ALIAS and www CNAME targets. The same-origin application must be served by the Flask service; the old static preview uses a browser-local adapter and cannot enable accounts by receiving an API URL.
+React (Vite, Recharts) front end served by a Flask API with SQLAlchemy and SQLite, hosted on Render behind Waitress.
 
-The application remains an educational prototype. Account recovery and email verification are not implemented. The stored currency and trade records are virtual practice data. See `docs/DEPLOYMENT.md` and `docs/DATABASE.md` for operational and storage details.
+- Passwords and child PINs are hashed with scrypt. Sessions use HttpOnly cookies, CSRF tokens and login rate limits.
+- Money is stored and calculated as exact decimals, not floating point. Every trade is posted atomically with a ledger entry and receipt, and retried requests cannot execute twice.
+- Quotes are signed and expire, so a parent approval can't use a stale price.
+- The database is backed up daily on a persistent disk.
+
+More detail: [Architecture](docs/ARCHITECTURE.md) · [Database](docs/DATABASE.md) · [Data and content](docs/DATA_AND_CONTENT.md) · [Deployment](docs/DEPLOYMENT.md) · [Render setup](docs/RENDER_SETUP.md)
+
+## Run it locally
+
+```bash
+python -m venv .venv
+.venv/bin/pip install -r backend/requirements.txt   # Windows: .venv\Scripts\pip
+python -m backend.app
+```
+
+Then open http://127.0.0.1:5000. The production front-end build is already in `frontend/dist`.
+
+## Author
+
+Amey Mishra
