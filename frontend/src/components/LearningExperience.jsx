@@ -231,6 +231,15 @@ export function LearningWelcome({ session, accept, perform, busy }) {
     });
   return (
     <div className="learning-welcome">
+      <a
+        className="code-banner"
+        href="https://github.com/AmeyMishra2024/Congressional-App-Challenge-2026"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <strong>VIEW CODE HERE</strong>
+        <span>github.com/AmeyMishra2024/Congressional-App-Challenge-2026</span>
+      </a>
       <header>
         <span className="welcome-brand">
           <Icon name="brand" />

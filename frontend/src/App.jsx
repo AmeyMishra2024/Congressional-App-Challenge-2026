@@ -344,6 +344,15 @@ function AppContent() {
         </nav>
       </aside>
       <div className="workspace">
+        <a
+          className="code-banner"
+          href="https://github.com/AmeyMishra2024/Congressional-App-Challenge-2026"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>VIEW CODE HERE</strong>
+          <span>github.com/AmeyMishra2024/Congressional-App-Challenge-2026</span>
+        </a>
         <WorkspaceHeader
           session={session}
           pageName={pageName}
