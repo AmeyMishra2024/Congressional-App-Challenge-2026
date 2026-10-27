@@ -278,3 +278,16 @@
     gap: 8px;
   }
 }
+.source-banner {
+  display: block;
+  padding: 10px 16px;
+  background: #d5aa42;
+  color: #142d50;
+  text-align: center;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.source-banner:hover, .source-banner:focus-visible {
+  text-decoration: underline;
+}
