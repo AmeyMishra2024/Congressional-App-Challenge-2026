@@ -307,6 +307,13 @@ export function LearningWelcome({ session, accept, perform, busy }) {
               <button className="quiet" onClick={() => setTab("parent")}>
                 Sign in
               </button>
+              <button
+                className="secondary judge-demo"
+                disabled={busy}
+                onClick={startDemo}
+              >
+                {busy ? "Opening demo…" : "Try the judge demo (no sign-up)"}
+              </button>
             </div>
           )}
           {tab && !session.public_preview && (
@@ -402,19 +409,6 @@ export function LearningWelcome({ session, accept, perform, busy }) {
                 </button>
               </form>
             </div>
-          )}
-          {!session.public_preview && (
-            <details className="demo-entry">
-              <summary>Try a demonstration</summary>
-              <p>
-                You can try the lessons and parent controls using a fictional
-                family without creating an account. Activity in this
-                demonstration does not affect a real family's data.
-              </p>
-              <button className="secondary" disabled={busy} onClick={startDemo}>
-                Start judge demo
-              </button>
-            </details>
           )}
         </section>
       </div>
