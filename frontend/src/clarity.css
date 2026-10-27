@@ -1,0 +1,280 @@
+/* Explicit surface colors prevent the older light-card rules leaking into balances. */
+.portfolio-summary {
+  color: #fff;
+  border: 1px solid var(--navy);
+  border-radius: 14px;
+  box-shadow: none;
+}
+.portfolio-summary .balance-detail strong {
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.portfolio-summary .balance-detail strong.positive {
+  color: #9fe4ce;
+}
+.portfolio-summary .balance-detail strong.negative {
+  color: #ffb9ae;
+}
+.portfolio-summary .balance-detail:last-child {
+  border-color: #48617f;
+}
+.portfolio-summary .balance-main small,
+.portfolio-summary .balance-detail small {
+  max-width: 24ch;
+  font-size: 0.8rem;
+}
+.portfolio-summary .balance-label {
+  font-size: 0.9rem;
+}
+.portfolio-summary .balance-detail > span {
+  font-size: 0.9rem;
+}
+.sidebar .brand {
+  margin-bottom: 32px;
+}
+.sidebar nav a:nth-child(6) {
+  margin-top: 20px;
+}
+.page-heading h1 {
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  letter-spacing: -0.035em;
+}
+.page-heading:has(h1:only-child) {
+  margin-bottom: 24px;
+}
+.lesson-progression .lesson-row {
+  padding-block: 20px;
+}
+.child-next p:empty {
+  display: none;
+}
+.child-wallet p {
+  font-size: 1rem;
+}
+.saved-goal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid var(--border);
+  padding: 20px 0;
+}
+.saved-goal span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.saved-goal a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.learning-welcome > header {
+  margin-bottom: 36px;
+}
+.learning-intro h1 {
+  font-size: clamp(2rem, 3.6vw, 3.1rem);
+  line-height: 1.15;
+  max-width: 18ch;
+}
+.learning-intro .welcome-promise {
+  font-size: 1rem;
+  max-width: 60ch;
+}
+.welcome-columns {
+  gap: 48px;
+}
+.welcome-how {
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+}
+.welcome-example {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+.welcome-example li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 4px 12px;
+  padding: 12px 0;
+  border: 0;
+  background: transparent;
+}
+.welcome-example li svg {
+  grid-row: span 2;
+  width: 24px;
+  height: 24px;
+}
+.welcome-example li strong,
+.welcome-example li span {
+  font-size: 1rem;
+}
+.entry-panel > p {
+  font-size: 1rem;
+}
+.preview-entry {
+  width: 100%;
+  justify-content: center;
+}
+.start-guide {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  background: white;
+  padding: 22px 26px;
+  border-radius: 10px;
+  margin-bottom: 28px;
+}
+.start-guide h2 {
+  font-size: 1.15rem;
+  margin: 0 0 8px;
+}
+.start-guide p {
+  margin: 0;
+  max-width: 70ch;
+}
+.start-guide-actions {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 6px;
+}
+.child-next {
+  padding-top: 4px;
+}
+.child-next h2 {
+  font-size: 1.45rem;
+}
+.activity-directory,
+.optional-challenge,
+.account-help,
+.installation-help {
+  border-top: 1px solid var(--border);
+  margin: 0;
+  padding: 10px 0;
+}
+.activity-directory > summary,
+.optional-challenge > summary,
+.account-help > summary,
+.installation-help > summary,
+.welcome-how > summary {
+  min-height: 48px;
+  padding-block: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.student-activities {
+  display: block;
+}
+.student-activities .learning-trail {
+  padding: 18px 0;
+}
+.student-activities .learning-trail ol {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.student-activities .learning-trail li a {
+  display: block;
+  padding: 18px;
+  min-height: auto;
+  background: white;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+}
+.student-activities .trail-top,
+.student-activities .trail-arrow {
+  display: none;
+}
+.student-activities .learning-trail h3 {
+  margin: 0 0 6px;
+}
+.student-activities .learning-trail p {
+  margin: 0 0 10px;
+  max-width: 70ch;
+}
+.student-activities .concept-challenge {
+  margin-top: 14px;
+}
+.definition-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.glossary-section > p {
+  max-width: 70ch;
+}
+.glossary-section > label {
+  display: grid;
+  max-width: 520px;
+  margin-block: 20px;
+}
+.workspace main p {
+  max-width: 76ch;
+}
+.child-wallet p {
+  max-width: 100%;
+}
+@media (max-width: 760px) {
+  .welcome-columns {
+    gap: 24px;
+  }
+  .learning-welcome > header {
+    margin-bottom: 24px;
+  }
+  .learning-intro h1 {
+    font-size: 2.1rem;
+  }
+  .start-guide {
+    padding: 18px;
+    gap: 16px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .start-guide-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .sidebar .brand {
+    margin-bottom: 12px;
+  }
+  .sidebar nav {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .sidebar nav a,
+  .sidebar nav a:nth-child(6),
+  .sidebar nav .parent-nav {
+    margin: 0;
+    padding: 9px 4px;
+    min-height: 52px;
+    font-size: 0.75rem;
+    gap: 4px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .sidebar nav a svg {
+    width: 20px;
+    height: 20px;
+  }
+  .sidebar nav .parent-nav {
+    grid-column: auto;
+    border: 1px solid #7894b5;
+    border-radius: 8px;
+  }
+  .sidebar nav .parent-nav::before {
+    display: none;
+  }
+  .saved-goal {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
