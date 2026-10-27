@@ -41,6 +41,15 @@ def backup_loop(database, directory):
         time.sleep(86400)
 
 
+def server_options():
+    # Render's public edge is the only route to this service's listening port.
+    # Waitress must retain/sanitize these before Flask's ProxyFix can use them.
+    return dict(host='0.0.0.0', port=int(os.environ.get('PORT', '10000')), threads=4,
+                trusted_proxy='*', trusted_proxy_count=1,
+                trusted_proxy_headers={'x-forwarded-for', 'x-forwarded-proto', 'x-forwarded-host'},
+                clear_untrusted_proxy_headers=True)
+
+
 def main():
     # This mount must be supplied by Render, rather than created on ephemeral storage.
     data = Path('/var/data')
@@ -57,7 +66,7 @@ def main():
     app = create_app()
     threading.Thread(target=backup_loop, args=(data / 'sprout.db', data / 'backups'),
                      name='sqlite-backups', daemon=True).start()
-    serve(app, host='0.0.0.0', port=int(os.environ.get('PORT', '10000')), threads=4)
+    serve(app, **server_options())
 
 
 if __name__ == '__main__':

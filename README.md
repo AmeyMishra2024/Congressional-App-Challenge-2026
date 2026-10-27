@@ -26,7 +26,7 @@ Environment variables:
 | TRUST_PROXY | true |
 | ENABLE_LIVE_MARKET | false |
 
-The startup script adds only Render's assigned `RENDER_EXTERNAL_HOSTNAME` to the trusted hosts. It refuses to start without the configured disk directory and database location. Waitress serves both the frontend and `/api` from the same origin, preserving session cookies and CSRF checks. Python is pinned to the latest 3.13 patch with `.python-version`.
+The startup script adds only Render's assigned `RENDER_EXTERNAL_HOSTNAME` to the trusted hosts. It refuses to start without the configured disk directory and database location. Waitress serves both the frontend and `/api` from the same origin, preserving session cookies and CSRF checks. Its proxy configuration trusts the single Render edge hop, sanitizes the allowed forwarded headers and removes other proxy headers. This entry point assumes the listening port is reachable only through Render's edge. Python is pinned to the latest 3.13 patch with `.python-version`.
 
 The frontend is already built in `frontend/dist`; the deployment does not need Node. To reproduce it, run `npm ci` and `npm run build` in `frontend`, then commit the generated production build with its source.
 
